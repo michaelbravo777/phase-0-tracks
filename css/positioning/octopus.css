@@ -1,18 +1,23 @@
-section#contact-info {
-  font-size: 0.8em;
+.octopus-wrapper {
+  position: relative;
+  margin-top: 10%;
+  margin-left: 40%;
 }
 
-.job { 
-    background-color: #e9e5dc;
-    border-radius: 25px;
-    padding: 5px;
+#octopus {
+  position: absolute;
+  top: 50px;
+  left: 25px;
 }
 
-.ulsize { 
-  font-size: 0.8em;
+#hat {
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 
-ul > :first-child {
-    color: blue;
+#glasses {
+  position: absolute;
+  top: 150px;
+  left: 65px;
 }
-
