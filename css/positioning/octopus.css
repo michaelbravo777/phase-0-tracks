@@ -1,0 +1,18 @@
+section#contact-info {
+  font-size: 0.8em;
+}
+
+.job { 
+    background-color: #e9e5dc;
+    border-radius: 25px;
+    padding: 5px;
+}
+
+.ulsize { 
+  font-size: 0.8em;
+}
+
+ul > :first-child {
+    color: blue;
+}
+
