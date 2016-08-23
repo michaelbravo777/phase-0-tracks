@@ -1,0 +1,46 @@
+How to use an elivator:
+
+-push call evelvator button.
+-wait for elevator door to open.
+-move forward until past elevator door.
+-rotate 180 degrees.
+-locate elevator buttons.
+-for each button:
+	-does button = desired floor?
+		-if true.
+			-push button.
+		-if not true.
+			-go to next button.
+-after button pushed.
+	-wait for door to close.
+	-if elevator is empty.
+		-wait until door opens again.
+		-exit.
+	-if elevator is not empty.
+		-wait until door opens again.
+			-does current floor = desired floor?
+				-if true.
+					-exit.
+				-if not true.
+					-go back to "wait for door to close".
+
+How to get to Heaven:
+
+-avoid evil.
+	-if evil thoughts come into your head.
+		-ignore them.
+		-think positive thoughts instead.
+			-if they persist.
+				-ask for help.
+-be good.
+	-do things.
+		-do you like that thing?
+			-if true.
+				-does that thing make the world a better place?
+					-if true.
+						-keep doing that thing.
+					-if not true.
+						-do something else.
+			-if not true.
+				-do something else.
+ 
