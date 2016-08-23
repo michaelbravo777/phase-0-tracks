@@ -1,6 +1,6 @@
-How to use an elivator:
+How to use an elevator:
 
--push call evelvator button.
+-push call elevator button.
 -wait for elevator door to open.
 -move forward until past elevator door.
 -rotate 180 degrees.
@@ -30,8 +30,8 @@ How to get to Heaven:
 	-if evil thoughts come into your head.
 		-ignore them.
 		-think positive thoughts instead.
-			-if they persist.
-				-ask for help.
+		-if they persist.
+			-ask for help.
 -be good.
 	-do things.
 		-do you like that thing?
