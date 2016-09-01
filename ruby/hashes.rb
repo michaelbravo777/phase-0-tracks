@@ -1,4 +1,10 @@
-#method to get input from user and return correct type
+#create method to get input from user
+#initialize hash
+#call get_input method with each item
+#output hash
+#ask if user should uodate or exit
+#if updated output hash again
+
 def get_input(symbol)
 	print "#{symbol} - "
 	input = gets.chomp
@@ -13,7 +19,6 @@ def get_input(symbol)
 	end
 end
 
-#initialize hash
 form  = {
 	name: "",
 	age: 0,
@@ -22,7 +27,6 @@ form  = {
 	cats: false,
 }
 
-#call get_input method with each item
 puts "\nInput Client info:"
 form[:name] = get_input("name")
 form[:age] = get_input("age")
@@ -30,7 +34,6 @@ form[:children] = get_input("children")
 form[:theme] = get_input("theme")
 form[:cats] = get_input("cats")
 
-#output hash
 puts "\nyou entered:"
 puts "name - #{form[:name]}"
 puts "age - #{form[:age]}"
@@ -38,7 +41,6 @@ puts "children - #{form[:children]}"
 puts "theme - #{form[:theme]}"
 puts "cats - #{form[:cats]}"
 
-#ask if user should uodate or exit
 puts "\nenter item to update or none"
 input = gets.chomp
 if input != "none"
