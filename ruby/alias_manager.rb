@@ -1,3 +1,9 @@
+#get name from user
+#swap first name and last
+#call routine that mathces each letter in name to a letter in a string.  if a match is found replace letter in name with next letter of string.
+#do this for consonants and vowels
+
+
 #method goes through input_string. if a char in input_string matches a char in key it will be replaced by next letter in key
 def next_item(key, input_string)
 	index_outer = 0
@@ -28,7 +34,7 @@ end
 
 consonants = 'BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyzb'
 vowels = 'AEIOUaeioua'
-name_array = [[]]
+name_array = []
 name_index = 0
 
 #get first spy name
@@ -36,12 +42,15 @@ puts "Enter spy name or type quit"
 input = gets.chomp
 until input == "quit" || input == "" do
 
-
-	#create array with first and last name
-	spy_name = input.split(' ')
-
-	#swap first name and last name
-	swapped_name = spy_name[1] + ' ' + spy_name[0]
+	#swap first name and last name, but only if there is a space
+	if input.include? " "
+		#create array with first and last name
+		spy_name = input.split(' ')
+		#swap names
+		swapped_name = spy_name[1] + ' ' + spy_name[0]
+	else
+		swapped_name = input
+	end
 
 	#change consonants to next
 	next_consonant = next_item(consonants, swapped_name)
@@ -49,6 +58,7 @@ until input == "quit" || input == "" do
 	#change vowels to next
 	new_name = next_item(vowels, next_consonant)
 
+	#save old name and new name to array
 	name_array[name_index] = [input, new_name]
 	name_index += 1
 
@@ -57,6 +67,7 @@ until input == "quit" || input == "" do
 	input = gets.chomp
 end
 
+#unless blank, ouput array of names
 if name_index > 0
 	name_array.each do |output|
 		puts "Original name: #{output[0]}, New name: #{output[1]}"
