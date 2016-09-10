@@ -1,3 +1,11 @@
+# player 1 enters a word
+# player 2 guesses letters
+# compare player2 letter to player 1 word
+# if match print good guess
+# if not print try again
+# keep going until all guesses used or player 2 wins
+
+
 class Hangman
 
   attr_reader :current_solution
