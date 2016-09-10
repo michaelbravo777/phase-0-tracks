@@ -4,7 +4,7 @@ class Hangman
   attr_reader :guesses_left
   attr_reader :guess_count
   attr_reader :over
-  attr_reader :won
+  attr_accessor :won
 
   def initialize(player1_input)
     @player1_input = player1_input
@@ -26,25 +26,28 @@ class Hangman
   end
   end
 
-  def word_check(guess)
-
-    if 
-       true
+  def check(guess)
+    if @player1_input[guess]
+    @player1_input.each_char.with_index do |char, index|
+          if char == guess
+            @current_solution[index] = guess
+          end
+        end
+        true
     else
-      false
+        false
     end
   end
 
-  def game_status
+  def status
     if @current_solution == @player1_input
+      @over = true
       true
     else
       @guesses_left -= 1
-      if @guesses_left = 0
-        @lost = true
+      if @guesses_left == 0
+        @over = true
       end
-      
-      
       false
     end
   end
@@ -54,21 +57,24 @@ end
 # user interface
 
 puts "Player 1: Enter a word"
-# player1_input = gets.chomp
-player1_input = "unicorn"
+player1_input = gets.chomp
 game = Hangman.new(player1_input)
 system "cls"
 
 while !game.over
 
-  puts "\nYou have #{game.guesses_left} guesses"
+  puts "\nYou have #{game.guesses_left} guesses left"
   puts "\n   " + game.current_solution
   puts "\nPlayer 2: Enter a letter"
   player2_input = gets.chomp
   if game.repeat(player2_input)
     puts "\nAlready guessed"
   else
-    game.word_check(player2_input)
+    if game.check(player2_input)
+      puts "\nGood guess"
+    else
+      puts "\nTry again"
+    end
   end
   game.won = game.status
 
@@ -77,5 +83,5 @@ end
 if game.won
   puts "\nYou won the game in #{game.guess_count} turns!"
 else
-  puts "/nYou lose, Good Day Sir!"
+  puts "\nYou lose, Good Day Sir!"
 end
