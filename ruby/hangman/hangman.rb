@@ -75,13 +75,16 @@ while !game.over
     else
       puts "\nTry again"
     end
+    game.won = game.status
   end
-  game.won = game.status
 
 end
 
 if game.won
+  puts "\n   " + game.current_solution
   puts "\nYou won the game in #{game.guess_count} turns!"
 else
+  puts "\n   " + game.current_solution
+  puts "\n*****NO MORE TURNS*****"
   puts "\nYou lose, Good Day Sir!"
 end
