@@ -14,29 +14,29 @@ class Hangman
   attr_reader :over
   attr_accessor :won
 
-  def initialize(player1_input)
-    @player1_input = player1_input
-    @current_solution = "_" * player1_input.length
+  def initialize(word)
+    @word = word
+    @current_solution = "_" * word.length
     @previous_guesses = ""
-    @guesses_left = player1_input.length * 2
+    @guesses_left = word.length * 2
     @guess_count = 0
     @over = false
     @won = false
   end
 
-  def repeat(player2_input)
-    if @previous_guesses[player2_input]
+  def repeat(guess)
+    if @previous_guesses[guess]
     true
   else
     @guess_count += 1
-    @previous_guesses = @previous_guesses + player2_input
+    @previous_guesses = @previous_guesses + guess
     false
   end
   end
 
   def check(guess)
-    if @player1_input[guess]
-    @player1_input.each_char.with_index do |char, index|
+    if @word[guess]
+    @word.each_char.with_index do |char, index|
           if char == guess
             @current_solution[index] = guess
           end
@@ -48,7 +48,7 @@ class Hangman
   end
 
   def status
-    if @current_solution == @player1_input
+    if @current_solution == @word
       @over = true
       true
     else
