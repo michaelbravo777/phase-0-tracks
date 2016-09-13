@@ -1,74 +1,39 @@
-#get name from user
-#swap first name and last
-#call routine that mathces each letter in name to a letter in a string.  if a match is found replace letter in name with next letter of string.
-#do this for consonants and vowels
+def create_alias(string)
+	vowels = 'AEIOUaeioua'
+	consonants = 'BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyzb'
+	output_string = ""
 
-
-#method goes through input_string. if a char in input_string matches a char in key it will be replaced by next letter in key
-def next_item(key, input_string)
-	index_outer = 0
-	output_string = ''
-
-	#loop through input string
-	while index_outer < input_string.length
-		#get current letter of input_string
-		current_input_letter = input_string[index_outer]
-
-  		#loop through key looking for current_input_letter
-		index_inner = 0
-		while index_inner < key.length
-			#get current letter of key
-			current_key_letter = key[index_inner]
-			if current_input_letter == current_key_letter
-				current_input_letter = key[index_inner + 1]
-				break
-			end
-			index_inner += 1
-
+	string.each_char do |string_character|
+		if vowels.include? string_character
+			output_string << vowels[vowels.index(string_character) + 1]
+		else
+			output_string << consonants[consonants.index(string_character) + 1]
 		end
-		output_string += current_input_letter
-		index_outer += 1
 	end
-	return output_string
+	output_string
 end
 
-consonants = 'BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyzb'
-vowels = 'AEIOUaeioua'
 name_array = []
-name_index = 0
 
-#get first spy name
 puts "Enter spy name or type quit"
 input = gets.chomp
 until input == "quit" || input == "" do
 
 	#swap first name and last name, but only if there is a space
 	if input.include? " "
-		#create array with first and last name
-		spy_name = input.split(' ')
-		#swap names
-		swapped_name = spy_name[1] + ' ' + spy_name[0]
+		spy_name = input.split(" ")
+		first_name = create_alias(spy_name[0])
+		last_name = create_alias(spy_name[1])
+		name_array << [input, last_name + " " + first_name]
 	else
-		swapped_name = input
+		name_array << [input, create_alias(input)]
 	end
 
-	#change consonants to next
-	next_consonant = next_item(consonants, swapped_name)
-
-	#change vowels to next
-	new_name = next_item(vowels, next_consonant)
-
-	#save old name and new name to array
-	name_array[name_index] = [input, new_name]
-	name_index += 1
-
-	#get next spy name
 	puts "Enter spy name or type quit"
 	input = gets.chomp
 end
 
-#unless blank, ouput array of names
-if name_index > 0
+if name_array.length > 0
 	name_array.each do |output|
 		puts "Original name: #{output[0]}, New name: #{output[1]}"
 	end
