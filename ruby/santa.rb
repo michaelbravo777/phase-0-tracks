@@ -28,17 +28,17 @@ class Santa
     # p @reindeer_ranking
   end
 
-  def gender
-    @gender
-  end
+  # def gender(gender)
+  #   @gender = gender
+  # end
 
-  def age
-    @age
-  end
+  # def age
+  #   @age
+  # end
 
-  def ethnicity
-    @ethnicity
-  end
+  # def ethnicity
+  #   @ethnicity
+  # end
 end
 
 santa = Santa.new("female", "Japanese-African")
