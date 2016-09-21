@@ -1,0 +1,106 @@
+Release 2: Execute SQL Queries
+
+1. Display the information in one table (either table is fine).
+sqlite> SELECT * FROM artists;
+1|Boy George
+2|Tears For Fears
+3|Pet Shop Boys
+4|Thompson Twins
+5|Simple Minds
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+sqlite> UPDATE artists SET name="Culture Club" WHERE name="Boy George";
+
+3. Display the information in both tables using one query.
+sqlite> SELECT * FROM songs, artists WHERE songs.artist_id = artists.id;
+1|Karma Chameleon|1|1|Culture Club
+2|Do You Really Want To Hurt Me|1|1|Culture Club
+3|Shout|2|2|Tears For Fears
+4|Everybody Wants To Rule The World|2|2|Tears For Fears
+5|Head Over Heels|2|2|Tears For Fears
+6|West End Girls|3|3|Pet Shop Boys
+7|Hold Me Now|4|4|Thompson Twins
+8|Doctor! Doctor!|4|4|Thompson Twins
+9|Don't You Forget About Me|5|5|Simple Minds
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+sqlite> SELECT songs.name, artists.name FROM songs JOIN artists ON songs.artist_id = artists.id;
+Karma Chameleon|Culture Club
+Do You Really Want To Hurt Me|Culture Club
+Shout|Tears For Fears
+Everybody Wants To Rule The World|Tears For Fears
+Head Over Heels|Tears For Fears
+West End Girls|Pet Shop Boys
+Hold Me Now|Thompson Twins
+Doctor! Doctor!|Thompson Twins
+Don't You Forget About Me|Simple Minds
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+sqlite> DELETE FROM songs WHERE name="Doctor! Doctor!";
+
+Release 3: Research on Your Own
+
+LEFT JOIN
+sqlite> SELECT artists.name, songs.name FROM songs LEFT JOIN artists ON songs.artist_id = artists.id;
+Culture Club|Karma Chameleon
+Culture Club|Do You Really Want To Hurt Me
+Tears For Fears|Shout
+Tears For Fears|Everybody Wants To Rule The World
+Tears For Fears|Head Over Heels
+Pet Shop Boys|West End Girls
+Thompson Twins|Hold Me Now
+Simple Minds|Don't You Forget About Me
+
+SELF JOIN
+sqlite> SELECT a.id, b.name FROM songs a, songs b WHERE a.artist_id = b.id;
+1|Karma Chameleon
+2|Karma Chameleon
+3|Do You Really Want To Hurt Me
+4|Do You Really Want To Hurt Me
+5|Do You Really Want To Hurt Me
+6|Shout
+7|Everybody Wants To Rule The World
+9|Head Over Heels
+
+CARTESIAN JOIN
+sqlite> SELECT songs.name, artists.name FROM songs, artists;
+Karma Chameleon|Culture Club
+Karma Chameleon|Tears For Fears
+Karma Chameleon|Pet Shop Boys
+Karma Chameleon|Thompson Twins
+Karma Chameleon|Simple Minds
+Do You Really Want To Hurt Me|Culture Club
+Do You Really Want To Hurt Me|Tears For Fears
+Do You Really Want To Hurt Me|Pet Shop Boys
+Do You Really Want To Hurt Me|Thompson Twins
+Do You Really Want To Hurt Me|Simple Minds
+Shout|Culture Club
+Shout|Tears For Fears
+Shout|Pet Shop Boys
+Shout|Thompson Twins
+Shout|Simple Minds
+Everybody Wants To Rule The World|Culture Club
+Everybody Wants To Rule The World|Tears For Fears
+Everybody Wants To Rule The World|Pet Shop Boys
+Everybody Wants To Rule The World|Thompson Twins
+Everybody Wants To Rule The World|Simple Minds
+Head Over Heels|Culture Club
+Head Over Heels|Tears For Fears
+Head Over Heels|Pet Shop Boys
+Head Over Heels|Thompson Twins
+Head Over Heels|Simple Minds
+West End Girls|Culture Club
+West End Girls|Tears For Fears
+West End Girls|Pet Shop Boys
+West End Girls|Thompson Twins
+West End Girls|Simple Minds
+Hold Me Now|Culture Club
+Hold Me Now|Tears For Fears
+Hold Me Now|Pet Shop Boys
+Hold Me Now|Thompson Twins
+Hold Me Now|Simple Minds
+Don't You Forget About Me|Culture Club
+Don't You Forget About Me|Tears For Fears
+Don't You Forget About Me|Pet Shop Boys
+Don't You Forget About Me|Thompson Twins
+Don't You Forget About Me|Simple Minds
