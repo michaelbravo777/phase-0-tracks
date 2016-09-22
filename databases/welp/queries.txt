@@ -1,0 +1,38 @@
+2. 
+SELECT *
+   ...> FROM user
+   ...> JOIN reviews
+   ...> ON reviews.user_id = user.id
+   ...> JOIN business
+   ...> ON business.id = reviews.business_id
+   ...> WHERE business.id=reviews.business_id;
+1|Bradford| pit|1|2|great food|1|1|1|Grundy Hollow Wedding
+2|collin|shelby|2|4|amazing service|2|2|2|Amirs Towing
+2|collin|shelby|3|1|cruddy food|1|2|1|Grundy Hollow Wedding
+sqlite> 
+
+
+3.
+SELECT user.first_name, user.last_name, reviews.stars,reviews.comment, business.name
+   ...> FROM user
+   ...> JOIN reviews
+   ...> ON reviews.user_id = user.id
+   ...> JOIN business
+   ...> ON business.id = reviews.business_id
+   ...> WHERE business.id=reviews.business_id;
+Bradford| pit|2|great food|Grundy Hollow Wedding
+collin|shelby|4|amazing service|Amirs Towing
+collin|shelby|1|cruddy food|Grundy Hollow Wedding
+sqlite>
+
+4. 
+SELECT *
+   ...> FROM user
+   ...> JOIN reviews
+   ...> ON reviews.user_id = user.id
+   ...> JOIN business
+   ...> ON business.id = reviews.business_id
+   ...> WHERE business.id= 1;
+1|Bradford| pit|1|2|great food|1|1|1|Grundy Hollow Wedding
+2|collin|shelby|3|1|cruddy food|1|2|1|Grundy Hollow Wedding
+sqlite>
