@@ -3,6 +3,11 @@ require "sqlite3"
 def init
 	# ARGV gets the command line argument
 	#http://jnoconor.github.io/blog/2013/10/13/a-short-explanation-of-argv/
+	if ARGV.empty?
+	  puts "\n***you must select a database***\n\nfor example - ruby dc.rb test.db"
+	  exit
+	end
+
 	db = SQLite3::Database.new(ARGV[0])
 	#this was needed to keep ARGV from passing more data than nessesary (interferes with gets)
 	ARGV.clear
