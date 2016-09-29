@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jquery hover demo</title>
+		<link rel="stylesheet" href="style.css" type="text/css">
+		<script src="jquery.js"></script>
+		<script>
+		$(document).ready(function(){
+			$(".img1").hover(function() {
+				$(this).attr("src","1b.png");
+	            $(this).css('z-index', '1');
+	            $(".img2").css('z-index', '0');
+	            $(".background").css('z-index', '-1');
+					}, function() {
+				$(this).attr("src","1a.png");
+	            $(this).css('z-index', '1');
+	            $(".img2").css('z-index', '0');
+	            $(".background").css('z-index', '-1');
+			});
+			$(".img2").hover(function() {
+				$(this).attr("src","2b.png");
+	            $(this).css('z-index', '1');
+	            $(".img1").css('z-index', '0');
+	            $(".img3").css('z-index', '0');
+	            $(".background").css('z-index', '-1');
+					}, function() {
+				$(this).attr("src","2a.png");
+	            $(this).css('z-index', '1');
+	            $(".img1").css('z-index', '0');
+	            $(".img3").css('z-index', '0');
+	            $(".background").css('z-index', '-1');
+			});
+			$(".img3").hover(function() {
+				$(this).attr("src","3b.png");
+	            $(this).css('z-index', '1');
+	            $(".img2").css('z-index', '0');
+	            $(".img4").css('z-index', '0');
+	            $(".background").css('z-index', '-1');
+					}, function() {
+				$(this).attr("src","3a.png");
+	            $(this).css('z-index', '1');
+	            $(".img2").css('z-index', '0');
+	            $(".img4").css('z-index', '0');
+	            $(".background").css('z-index', '-1');
+			});
+			$(".img4").hover(function() {
+				$(this).attr("src","4b.png");
+	            $(this).css('z-index', '1');
+	            $(".img3").css('z-index', '0');
+	            $(".img5").css('z-index', '0');
+	            $(".background").css('z-index', '-1');
+					}, function() {
+				$(this).attr("src","4a.png");
+	            $(".img3").css('z-index', '0');
+	            $(".img5").css('z-index', '0');
+	            $(".background").css('z-index', '-1');
+			});
+			$(".img5").hover(function() {
+				$(this).attr("src","5b.png");
+	            $(this).css('z-index', '1');
+	            $(".img4").css('z-index', '0');
+	            $(".img6").css('z-index', '0');
+	            $(".background").css('z-index', '-1');
+					}, function() {
+				$(this).attr("src","5a.png");
+	            $(this).css('z-index', '1');
+	            $(".img4").css('z-index', '0');
+	            $(".img6").css('z-index', '0');
+	            $(".background").css('z-index', '-1');
+			});
+			$(".img6").hover(function() {
+				$(this).attr("src","6b.png");
+	            $(this).css('z-index', '1');
+	            $(".img5").css('z-index', '0');
+	            $(".background").css('z-index', '-1');
+					}, function() {
+				$(this).attr("src","6a.png");
+	            $(this).css('z-index', '1');
+	            $(".img5").css('z-index', '0');
+	            $(".background").css('z-index', '-1');
+			});
+		});
+		</script>
+	</head>
+	<body>
+		<img src="background.jpg" class="background">
+		<img src="1a.png" class="img1">
+		<img src="2a.png" class="img2">
+		<img src="3a.png" class="img3">
+		<img src="4a.png" class="img4">
+		<img src="5a.png" class="img5">
+		<img src="6a.png" class="img6">
+	</body>
+</html>
