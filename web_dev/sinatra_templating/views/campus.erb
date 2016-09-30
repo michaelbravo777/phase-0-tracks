@@ -1,0 +1,22 @@
+<!-- 'erb' stands for embedded ruby, and allows us to write HTML templates that can also run some Ruby -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Management System</title>
+<!--   Don't need to include 'static' when linking style sheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Student Management System</h1>
+  <p>Click which campus you want to see:</p>
+
+  <form action="/campusresults" method="GET">
+    <input type="radio" name="campus" value="SF">SF <br>
+    <input type="radio" name="campus" value="NYC">NYC <br>
+    <input type="radio" name="campus" value="SD"> SD <br>
+    <input type="radio" name="campus" value="SEA"> SEA <br>
+    <input type="radio" name="campus" value="CHI"> CHI <br>
+    <button type="submit">Go!</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Management System</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Student Management System</h1>
+
+  <p>Click <a href="/">here</a> to go home.</p>
+
+  <h2>Students from <%= @campus[0]['campus']%>:</h2>
+  <ul>
+    <% @campus.each do |student| %>
+      <li><%= student['name'] %>, <%= student['age'] %></li>
+    <% end %>
+  </ul>
+</body>
+</html>

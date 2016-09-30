@@ -1,12 +1,18 @@
+<!-- 'erb' stands for embedded ruby, and allows us to write HTML templates that can also run some Ruby -->
+<!DOCTYPE html>
 <html>
 <head>
   <title>Student Management System</title>
+<!--   Don't need to include 'static' when linking style sheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <h1>Student Management System</h1>
   <p>Welcome to the student management system.</p>
   <p>Click <a href="students/new">here</a> to create a new student.</p>
+  <p>Click <a href="campus">here</a> to choose a campus to view</p>
+  <p>Click <a href="campus/new">here</a> to add a campus</p>
+
   <ul>
     <% @students.each do |student| %>
       <li><%= student['name'] %>, <%= student['age'] %></li>
@@ -14,3 +20,6 @@
   </ul>
 </body>
 </html>
+
+
+<!--   Ice cream cones indicates we are using Ruby inside the HTML templates, sort of like interpolation symbols inside strings. '=' means you want to print the output of the expression to the screen. So we don't use the '=' unless we want to print. -->

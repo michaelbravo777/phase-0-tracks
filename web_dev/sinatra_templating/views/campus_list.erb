@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Management System</title>
+<!--   Don't need to include 'static' when linking style sheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Student Management System</h1>
+  <p>Campus list</p>
+  <p>Click <a href="/">here</a> to go home.</p>
+
+  <ul>
+    <% @campuses.each do |campus| %>
+      <li><%= campus['campus'] %></li>
+    <% end %>
+  </ul>
+</body>
+</html>
